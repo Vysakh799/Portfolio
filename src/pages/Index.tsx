@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -6,8 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Github, Linkedin, Download, ExternalLink, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Download, ExternalLink, ArrowRight, Atom, Code, Database, BadgeCheck, FileCode, Braces, Globe, Box, GitBranch, Cloud, Server, Lock, CreditCard, Palette, Brain } from "lucide-react";
 import SmoothScroll from "@/components/SmoothScroll";
+import SplashCursor from "@/components/SplashCursor";
+import emailjs from '@emailjs/browser';
 
 const Index = () => {
   const { toast } = useToast();
@@ -19,11 +20,30 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
+    emailjs.send(
+      'YOUR_SERVICE_ID',
+      'YOUR_TEMPLATE_ID',
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      'YOUR_PUBLIC_KEY'
+    )
+    .then(() => {
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch(() => {
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive"
+      });
     });
-    setFormData({ name: '', email: '', message: '' });
   };
 
   const handleContactClick = () => {
@@ -41,14 +61,30 @@ const Index = () => {
   };
 
   const skills = [
-    { name: "Python", level: 90 },
-    { name: "Django", level: 90 },
-    { name: "React", level: 85 },
-    { name: "JavaScript", level: 85 },
-    { name: "HTML/CSS", level: 95 },
-    { name: "Flask", level: 80 },
-    { name: "MySQL", level: 75 },
-    { name: "MongoDB", level: 70 }
+    { name: "Python", icon: "python.svg" },
+    { name: "JavaScript", icon: "javascript.svg" },
+    { name: "Django", icon: "django.svg" },
+    { name: "Flask", icon: "flask.svg" },
+    { name: "React", icon: "react.svg" },
+    { name: "Node.js", icon: "nodedotjs.svg" },
+    { name: "Express", icon: "express.svg" },
+    { name: "MongoDB", icon: "mongodb.svg" },
+    { name: "MySQL", icon: "mysql.svg" },
+    { name: "PostgreSQL", icon: "postgresql.svg" },
+    { name: "Git", icon: "git.svg" },
+    { name: "Docker", icon: "docker.svg" },
+    { name: "AWS EC2", icon: "aws.svg" },
+    { name: "Nginx", icon: "nginx.svg" },
+    { name: "Auth0", icon: "auth0.svg" },
+    { name: "JWT", icon: "jsonwebtokens.svg" },
+    { name: "Razorpay", icon: "razorpay.svg" },
+    { name: "Stripe", icon: "stripe.svg" },
+    { name: "OpenCV", icon: "opencv.svg" },
+    { name: "TensorFlow", icon: "tensorflow.svg" },
+    { name: "scikit-learn", icon: "scikitlearn.svg" },
+    { name: "Redux Toolkit", icon: "redux.svg" },
+    { name: "Tailwind CSS", icon: "tailwindcss.svg" },
+    { name: "Figma", icon: "figma.svg" },
   ];
 
   const projects = [
@@ -75,6 +111,7 @@ const Index = () => {
   return (
     <div className="bg-gradient-portfolio min-h-screen text-white">
       <SmoothScroll />
+      <SplashCursor />
       
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
@@ -87,6 +124,7 @@ const Index = () => {
               <a href="#home" className="hover:text-portfolio-primary transition-colors">Home</a>
               <a href="#about" className="hover:text-portfolio-primary transition-colors">About</a>
               <a href="#skills" className="hover:text-portfolio-primary transition-colors">Skills</a>
+              <a href="#experience" className="hover:text-portfolio-primary transition-colors">Experience</a>
               <a href="#projects" className="hover:text-portfolio-primary transition-colors">Projects</a>
               <a href="#contact" className="hover:text-portfolio-primary transition-colors">Contact</a>
             </div>
@@ -101,7 +139,7 @@ const Index = () => {
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-50" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e91e63' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
         
         <div className="container mx-auto px-6 text-center relative z-10">
@@ -109,7 +147,7 @@ const Index = () => {
             <p className="text-portfolio-primary text-lg mb-4 tracking-wide">FULL-STACK WEB DEVELOPER</p>
             <h1 className="text-6xl md:text-8xl font-bold mb-6">
               Vysakh
-              <span className="block bg-gradient-button bg-clip-text text-transparent">E</span>
+              <span className="bg-gradient-button bg-clip-text text-transparent"> E</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Motivated Python Developer with hands-on experience in full-stack development using Django, Flask, React, and MERN stack.
@@ -133,19 +171,16 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative">
+      <section id="about" className="py-20 relative z-20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h2 className="text-4xl font-bold mb-6">About <span className="text-portfolio-primary">Me</span></h2>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                I'm a motivated and enthusiastic Python Developer who successfully transitioned from intern to professional developer. 
-                Currently working as a Python FullStack Developer Cum Trainer at Synnefo Solutions, where I develop web applications 
-                and deliver training sessions.
+              I'm Vysakh E., a passionate and self-motivated full-stack Python developer with hands-on experience in building dynamic web applications using Django, React, and the MERN stack. My journey into tech began with curiosity and grew into a strong commitment to building solutions that matter.
               </p>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                I specialize in building scalable web applications using Django, React, and modern development practices. 
-                My experience spans from developing CRM systems to training the next generation of developers.
+              Over time, I've developed a solid understanding of both frontend and backend development, and I enjoy transforming ideas into real-world applications. I'm always eager to learn new technologies, explore innovative ideas, and take on meaningful challenges that push my limits. Whether it's crafting a seamless UI or building powerful backend logic, I strive to write clean, maintainable code that makes a difference.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center space-x-2">
@@ -173,7 +208,7 @@ const Index = () => {
             <div className="relative">
               <div className="w-80 h-80 mx-auto rounded-full bg-gradient-card border-2 border-portfolio-primary/30 flex items-center justify-center">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" 
+                  src="/IMG-20240531-WA0005-01.jpeg" 
                   alt="Vysakh E" 
                   className="w-72 h-72 rounded-full object-cover"
                 />
@@ -184,36 +219,69 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-black/20">
+      <section id="skills" className="py-20 bg-black/20 relative z-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">My <span className="text-portfolio-primary">Skills</span></h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Here are the technologies and tools I use to bring ideas to life
-            </p>
+            <h2 className="text-4xl font-bold mb-4">Skills & Technologies</h2>
+            <div className="flex justify-center mb-4">
+              <span className="block w-24 h-1 bg-portfolio-primary rounded-full"></span>
+            </div>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
             {skills.map((skill, index) => (
-              <div key={skill.name} className="animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
-                <div className="flex justify-between mb-2">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-portfolio-primary">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div 
-                    className="h-2 bg-gradient-button rounded-full transition-all duration-1000 ease-out"
-                    style={{width: `${skill.level}%`}}
-                  ></div>
-                </div>
+              <div key={skill.name} className="flex flex-col items-center justify-center bg-blue-950/80 border border-portfolio-primary/20 rounded-xl p-6 animate-fade-in transition-transform duration-300 ease-in-out hover:scale-105 group " style={{animationDelay: `${index * 0.05}s`}}>
+                <img
+                  src={`/icons/${skill.icon}`}
+                  alt={skill.name}
+                  className="w-10 h-10 mb-3 svg-theme transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:drop-shadow-glow"
+                  title={skill.name}
+                />
+                <span className="text-white font-medium text-base text-center">{skill.name}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section id="experience" className="py-20 relative z-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Experience</h2>
+            <div className="flex justify-center">
+              <span className="block w-24 h-1 bg-portfolio-primary rounded-full"></span>
+            </div>
+          </div>
+          <div className="flex flex-col items-center relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-portfolio-primary/30"></div>
+            {/* Timeline dot */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-24 w-4 h-4 bg-portfolio-primary rounded-full z-10"></div>
+            <div className="w-full md:w-1/2 mt-12 md:mt-0 md:ml-auto p-3">
+              <div className=" bg-gradient-card border bg-blue-950/80 rounded-xl shadow-lg p-8 mb-8 animate-fade-in">
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className="text-xl font-bold text-white">Python Fullstack Developer</h3>
+                  <span className="text-portfolio-primary text-sm font-semibold">Aug 2024 – Present</span>
+                </div>
+                <div className="text-gray-300 font-semibold mb-1">Synnefo Solutions</div>
+                <div className="text-gray-400 mb-4 text-sm">
+                  Leading full-stack development using Django, Flask, and MERN stack. Implementing secure REST APIs with JWT/Auth0 authentication and Razorpay payment integration. Developing AI-powered features including chatbots and recommendation systems.
+                </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {['Django', 'Flask', 'MERN Stack', 'REST APIs', 'Razorpay', 'JWT', 'Auth0', 'AI/ML'].map((tag) => (
+                    <span key={tag} className="bg-portfolio-primary/20 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
-      <section id="projects" className="py-20">
+      <section id="projects" className="py-20 relative z-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">My <span className="text-portfolio-primary">Projects</span></h2>
@@ -223,44 +291,59 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={project.title} className="bg-gradient-card border-portfolio-primary/20 hover:border-portfolio-primary/50 transition-all duration-300 group animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
-                <CardHeader>
-                  <CardTitle className="text-white group-hover:text-portfolio-primary transition-colors">
-                    {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-gray-300">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold mb-2 text-portfolio-primary">Key Features:</h4>
-                    <ul className="text-sm text-gray-300 space-y-1">
-                      {project.features.map((feature, i) => (
-                        <li key={i} className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-portfolio-primary rounded-full mr-2"></span>
-                          {feature}
-                        </li>
+            {projects.map((project, index) => {
+              // Choose an image based on project title/theme
+              let imageUrl = '';
+              if (project.title.toLowerCase().includes('lawyer') || project.title.toLowerCase().includes('adv')) {
+                imageUrl = 'https://cache.careers360.mobi/media/article_images/2023/4/24/difference-between-lawyer-advocate.jpg'; // Law theme
+              } else if (project.title.toLowerCase().includes('file')) {
+                imageUrl = 'https://www.filecenter.com/blog/wp-content/uploads/2024/07/Electronic-filing-system-for-computerized-file-management.jpg'; // File theme
+              } else if (project.title.toLowerCase().includes('e-commerce') || project.title.toLowerCase().includes('gym')) {
+                imageUrl = 'https://www.zealthhealthtech.com/blog/wp-content/uploads/2023/11/ecommerce3-1.jpg'; // E-commerce/gym theme
+              } else {
+                imageUrl = 'https://placehold.co/600x300/1a2233/ffffff?text=Project+Image'; // Default
+              }
+              return (
+                <Card key={project.title} className="bg-blue-950/80 border-portfolio-primary/20 hover:border-portfolio-primary/50 transition-all duration-300 group animate-fade-in flex flex-col overflow-hidden" style={{animationDelay: `${index * 0.2}s`}}>
+                  {/* Project image at the top */}
+                  <img src={imageUrl} alt={project.title} className="w-full h-48 object-cover object-center rounded-t-2xl" />
+                  <CardHeader>
+                    <CardTitle className="text-white group-hover:text-portfolio-primary transition-colors">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="text-gray-300">
+                      {project.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="mb-4">
+                      <h4 className="text-sm font-semibold mb-2 text-portfolio-primary">Key Features:</h4>
+                      <ul className="text-sm text-gray-300 space-y-1">
+                        {project.features.map((feature, i) => (
+                          <li key={i} className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-portfolio-primary rounded-full mr-2"></span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="bg-portfolio-primary/20 text-portfolio-primary border-portfolio-primary/30">
+                          {tech}
+                        </Badge>
                       ))}
-                    </ul>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="bg-portfolio-primary/20 text-portfolio-primary border-portfolio-primary/30">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-black/20">
+      <section id="contact" className="py-20 bg-black/20 relative z-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Contact <span className="text-portfolio-primary">Me</span></h2>
@@ -270,9 +353,9 @@ const Index = () => {
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <Card className="bg-gradient-card border-portfolio-primary/20">
+            <Card className="bg-blue-950/80 border-portfolio-primary/20">
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6 text-white">
                   <div>
                     <label className="block text-sm font-medium mb-2">Full Name *</label>
                     <Input
@@ -317,7 +400,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-gray-800">
+      <footer className="py-12 border-t border-gray-800 relative z-20">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-center md:text-left mb-6 md:mb-0">

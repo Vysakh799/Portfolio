@@ -83,7 +83,7 @@
     --ring: 212.7 26.8% 83.9%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
@@ -100,4 +100,18 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.svg-theme {
+  filter: brightness(0) saturate(100%) invert(36%) sepia(99%) saturate(749%) hue-rotate(186deg) brightness(97%) contrast(101%);
+}
+
+/* Custom drop shadow for glowing effect on icon */
+.hover\:drop-shadow-glow:hover, .group-hover\:drop-shadow-glow:where(.group:hover &){
+  filter: drop-shadow(0 0 8px #3b82f6) drop-shadow(0 0 16px #3b82f6);
+}
+
+/* Custom drop shadow for glowing effect on card */
+.hover\:drop-shadow-glow-card:hover {
+  filter: drop-shadow(0 0 16px #3b82f6) drop-shadow(0 0 32px #3b82f6);
 }

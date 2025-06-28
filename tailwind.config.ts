@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,16 +63,16 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				portfolio: {
-					primary: '#e91e63',
-					secondary: '#9c27b0',
+					primary: '#3b82f6',
+					secondary: '#1d4ed8',
 					dark: '#0a0a0f',
 					'dark-light': '#1a1a2e'
 				}
 			},
 			backgroundImage: {
 				'gradient-portfolio': 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%)',
-				'gradient-card': 'linear-gradient(135deg, rgba(233, 30, 99, 0.1) 0%, rgba(156, 39, 176, 0.1) 100%)',
-				'gradient-button': 'linear-gradient(135deg, #e91e63 0%, #9c27b0 100%)'
+				'gradient-card': 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(29, 78, 216, 0.1) 100%)',
+				'gradient-button': 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
