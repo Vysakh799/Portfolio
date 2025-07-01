@@ -1,0 +1,73 @@
+.star-border-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 9999px;
+  /* padding is set inline for thickness */
+}
+
+.star-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 1;
+  background: conic-gradient(
+    from 0deg,
+    var(--star-border-color, #00fff0) 0deg 8deg,
+    transparent 8deg 18deg,
+    var(--star-border-color, #00fff0) 18deg 26deg,
+    transparent 26deg 36deg,
+    var(--star-border-color, #00fff0) 36deg 44deg,
+    transparent 44deg 54deg,
+    var(--star-border-color, #00fff0) 54deg 62deg,
+    transparent 62deg 72deg,
+    var(--star-border-color, #00fff0) 72deg 80deg,
+    transparent 80deg 90deg,
+    var(--star-border-color, #00fff0) 90deg 98deg,
+    transparent 98deg 108deg,
+    var(--star-border-color, #00fff0) 108deg 116deg,
+    transparent 116deg 126deg,
+    var(--star-border-color, #00fff0) 126deg 134deg,
+    transparent 134deg 144deg,
+    var(--star-border-color, #00fff0) 144deg 152deg,
+    transparent 152deg 162deg,
+    var(--star-border-color, #00fff0) 162deg 170deg,
+    transparent 170deg 180deg,
+    var(--star-border-color, #00fff0) 180deg 188deg,
+    transparent 188deg 198deg,
+    var(--star-border-color, #00fff0) 198deg 206deg,
+    transparent 206deg 216deg,
+    var(--star-border-color, #00fff0) 216deg 224deg,
+    transparent 224deg 234deg,
+    var(--star-border-color, #00fff0) 234deg 242deg,
+    transparent 242deg 252deg,
+    var(--star-border-color, #00fff0) 252deg 260deg,
+    transparent 260deg 270deg,
+    var(--star-border-color, #00fff0) 270deg 278deg,
+    transparent 278deg 288deg,
+    var(--star-border-color, #00fff0) 288deg 296deg,
+    transparent 296deg 306deg,
+    var(--star-border-color, #00fff0) 306deg 314deg,
+    transparent 314deg 324deg,
+    var(--star-border-color, #00fff0) 324deg 332deg,
+    transparent 332deg 342deg,
+    var(--star-border-color, #00fff0) 342deg 350deg,
+    transparent 350deg 360deg
+  );
+  box-shadow: 0 0 16px 4px var(--star-border-color, #00fff0), 0 0 32px 8px var(--star-border-color, #00fff0);
+  filter: blur(1px) brightness(1.2);
+  animation: spin-star var(--star-border-speed, 3s) linear infinite;
+}
+
+@keyframes spin-star {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.star-border-content {
+  position: relative;
+  border-radius: 9999px;
+  z-index: 2;
+}
+  

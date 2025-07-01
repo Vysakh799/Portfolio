@@ -40,3 +40,28 @@
 .read-the-docs {
   color: #888;
 }
+
+/* .star-border {
+  border-radius: 9999px;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background: conic-gradient(
+    from 0deg,
+    #fffbe6 0deg 10deg,
+    transparent 10deg 60deg,
+    #ffe066 60deg 70deg,
+    transparent 70deg 120deg,
+    #fffbe6 120deg 130deg,
+    transparent 130deg 360deg
+  );
+  filter: blur(2px) brightness(1.2);
+  animation: spin-star 3s linear infinite;
+}
+
+@keyframes spin-star {
+  to {
+    transform: rotate(360deg);
+  }
+} */
