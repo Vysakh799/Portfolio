@@ -62,7 +62,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
           </div>
         </div>
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 w-full md:max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
@@ -71,17 +71,17 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              className="flex flex-col items-center justify-center bg-blue-950/80 border border-portfolio-primary/20 rounded-xl p-6 group"
+              className="flex flex-col items-center justify-center bg-blue-950/80 border border-portfolio-primary/20 rounded-xl p-3 sm:p-4 md:p-6 group"
               custom={index}
               variants={iconVariants}
             >
               <img
                 src={`/icons/${skill.icon}`}
                 alt={skill.name}
-                className="w-10 h-10 mb-3 svg-theme"
+                className="w-8 h-8 sm:w-10 sm:h-10 mb-2 sm:mb-3 svg-theme"
                 title={skill.name}
               />
-              <span className="text-white font-medium text-base text-center">{skill.name}</span>
+              <span className="text-white font-medium text-xs sm:text-base text-center">{skill.name}</span>
             </motion.div>
           ))}
         </motion.div>

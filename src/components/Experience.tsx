@@ -31,12 +31,12 @@ const Experience: React.FC<ExperienceProps> = ({ tags = defaultTags }) => {
         </div>
         <div className="flex flex-col items-center relative" ref={ref}>
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-portfolio-primary/30"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-portfolio-primary/30 sm:w-1 w-0.5 hidden sm:block"></div>
           {/* Timeline dot */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-24 w-4 h-4 bg-portfolio-primary rounded-full z-10"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-24 w-4 h-4 bg-portfolio-primary rounded-full z-10 sm:w-4 sm:h-4 w-2.5 h-2.5 hidden sm:block"></div>
           <div className="w-full md:w-1/2 mt-12 md:mt-0 md:ml-auto p-3">
             <motion.div
-              className="bg-gradient-card border bg-blue-950/80 rounded-xl shadow-lg p-8 mb-8 animate-fade-in"
+              className="bg-gradient-card border bg-blue-950/80 rounded-xl shadow-lg p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 animate-fade-in"
               initial="hidden"
               animate={controls}
               variants={{
@@ -44,17 +44,17 @@ const Experience: React.FC<ExperienceProps> = ({ tags = defaultTags }) => {
                 visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 80, damping: 18 } }
               }}
             >
-              <div className="flex justify-between items-center mb-2">
-                <h3 className="text-xl font-bold text-white">Python Fullstack Developer</h3>
-                <span className="text-portfolio-primary text-sm font-semibold">Aug 2024 – Present</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 gap-1 sm:gap-0">
+                <h3 className="text-lg sm:text-xl font-bold text-white">Python Fullstack Developer</h3>
+                <span className="text-portfolio-primary text-xs sm:text-sm font-semibold">Aug 2024 – Present</span>
               </div>
-              <div className="text-gray-300 font-semibold mb-1">Synnefo Solutions</div>
-              <div className="text-gray-400 mb-4 text-sm">
+              <div className="text-gray-300 font-semibold mb-1 text-sm sm:text-base">Synnefo Solutions</div>
+              <div className="text-gray-400 mb-4 text-xs sm:text-sm">
                 Leading full-stack development using Django, Flask, and MERN stack. Implementing secure REST APIs with JWT/Auth0 authentication and Razorpay payment integration. Developing AI-powered features including chatbots and recommendation systems.
               </div>
               <div className="flex flex-wrap gap-2 mt-2">
                 {tags.map((tag) => (
-                  <span key={tag} className="bg-portfolio-primary/20 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <span key={tag} className="bg-portfolio-primary/20 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-xs font-semibold">
                     {tag}
                   </span>
                 ))}

@@ -112,10 +112,12 @@ const Index = () => {
               <a href="#projects" className="hover:text-portfolio-primary transition-colors">Projects</a>
               <a href="#contact" className="hover:text-portfolio-primary transition-colors">Contact</a>
             </div>
-            <Button className="bg-gradient-button hover:opacity-90">
-              <Download className="w-4 h-4 mr-2" />
-              Download CV
-            </Button>
+            <a href="/resume.pdf" download className="inline-block">
+              <Button className="bg-gradient-button hover:opacity-90">
+                <Download className="w-4 h-4 mr-2" />
+                Download CV
+              </Button>
+            </a>
           </div>
         </div>
       </nav>
