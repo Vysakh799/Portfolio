@@ -69,7 +69,7 @@ const AboutMe = () => {
     <section id="about" className="py-20 relative z-20" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="animate-fade-in">
+          <div className="order-2 md:order-1 animate-fade-in">
             <h2 className="text-4xl font-bold mb-6 sm:text-3xl xs:text-2xl">About <span className="text-portfolio-primary">Me</span></h2>
             <p className="text-gray-300 mb-6 leading-relaxed min-h-[96px] sm:text-base xs:text-sm text-xs">
               {typedAbout1}
@@ -106,7 +106,7 @@ const AboutMe = () => {
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </button>
           </div>
-          <div className="relative w-80 h-80 mx-auto flex items-center justify-center sm:w-72 sm:h-72 xs:w-48 xs:h-48 w-44 h-44">
+          <div className="order-1 md:order-2 relative w-80 h-80 mx-auto flex items-center justify-center sm:w-72 sm:h-72 xs:w-48 xs:h-48 w-44 h-44">
             <div className="w-80 h-80 rounded-full bg-gradient-card border-2 border-portfolio-primary/30 flex items-center justify-center overflow-hidden sm:w-72 sm:h-72 xs:w-48 xs:h-48 w-44 h-44">
               <img
                 src="/IMG-20240531-WA0005-01.jpeg"
