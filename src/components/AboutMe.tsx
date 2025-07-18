@@ -66,18 +66,18 @@ const AboutMe = () => {
   }, [hasAnimated]);
 
   return (
-    <section id="about" className="py-20 relative z-20" ref={sectionRef}>
+    <section id="about" className="py-12 md:py-20 relative z-20" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1 animate-fade-in">
             <h2 className="text-4xl font-bold mb-6 sm:text-3xl xs:text-2xl">About <span className="text-portfolio-primary">Me</span></h2>
-            <p className="text-gray-300 mb-6 leading-relaxed min-h-[96px] sm:text-base xs:text-sm text-xs">
+            <p className="text-gray-300 mb-6 leading-relaxed min-h-[96px] text-sm sm:text-base md:text-lg">
               {typedAbout1}
               {showCursor1 && (
                 <span className="inline-block w-2 h-6 align-middle bg-portfolio-primary animate-pulse ml-1" style={{ verticalAlign: 'middle' }}></span>
               )}
             </p>
-            <p className="text-gray-300 mb-8 leading-relaxed min-h-[96px] sm:text-base xs:text-sm text-xs">
+            <p className="text-gray-300 mb-8 leading-relaxed min-h-[96px] text-sm sm:text-base md:text-lg">
               {typedAbout2}
               {showCursor2 && (
                 <span className="inline-block w-2 h-6 align-middle bg-portfolio-primary animate-pulse ml-1" style={{ verticalAlign: 'middle' }}></span>

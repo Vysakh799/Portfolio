@@ -123,12 +123,12 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pb-0 mb-0">
         <div className="absolute inset-0 opacity-50" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
         
-        <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="container mx-auto px-6 text-center relative z-10 pb-0 mb-0">
           <div className="animate-fade-in">
             <p className="text-portfolio-primary text-lg mb-4 tracking-wide">FULL-STACK WEB DEVELOPER</p>
             <h1 className="text-6xl md:text-8xl font-bold mb-6 flex justify-center gap-1">

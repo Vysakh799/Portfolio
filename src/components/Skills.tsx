@@ -78,7 +78,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
               <img
                 src={`/icons/${skill.icon}`}
                 alt={skill.name}
-                className="w-8 h-8 sm:w-10 sm:h-10 mb-2 sm:mb-3 svg-theme"
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-18 mb-2 sm:mb-3 svg-theme"
                 title={skill.name}
               />
               <span className="text-white font-medium text-xs sm:text-base text-center">{skill.name}</span>
